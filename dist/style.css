@@ -96,13 +96,14 @@ body.dark .header {
     justify-content: center;
 }
 
-.fa-check-double {
+/* .fa-check-double {
     font-size: 40px;
-}
+} */
 
+.fa-check-double,
 .page-name {
     font-family: 'Yusei Magic', sans-serif;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .button-dropdown-nav {
