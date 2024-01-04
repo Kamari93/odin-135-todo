@@ -6,6 +6,7 @@
     --third-light: #a8b5ac;
     --third-dark: #4f5552;
     --primary-main: #f3f1f1;
+    --cancel-color: orange;
 }
   
 *,
@@ -261,14 +262,14 @@ body.dark .nav {
 }
   
   .button-add-project-popup {
-    border: 1px solid #99dd99;
-    background-color: #aaffaa;
+    border: 1px solid var(--third-light);
+    background-color: var(--third-light);
     font-weight: bold;
 }
   
   .button-cancel-project-popup {
-    border: 1px solid #eeadad;
-    background-color: #ffbebe;
+    border: 1px solid var(--cancel-color);
+    background-color: var(--cancel-color);
     font-weight: bold;
 }
   
