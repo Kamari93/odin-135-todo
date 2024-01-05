@@ -148,7 +148,7 @@ body.dark select {
 .main {
     display: flex;
     /* navbar support */
-    min-height: calc(100vh - 104px - 48px); /*  - header_height - footer_height */
+    min-height: calc(100vh - 103px - 42px); /*  - header_height - footer_height */
 }
   
 .nav {
