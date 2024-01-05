@@ -6,7 +6,11 @@
     --third-light: #a8b5ac;
     --third-dark: #4f5552;
     --primary-main: #f3f1f1;
-    --cancel-color: orange;
+    --add-color: #809687;
+    --cancel-color: rgb(238, 112, 59);
+    /* --add-hover-color: #a6f0a6; */
+    --add-hover-color: #a8b5ac;
+    --cancel-hover-color: orange;
 }
   
 *,
@@ -262,8 +266,8 @@ body.dark .nav {
 }
   
   .button-add-project-popup {
-    border: 1px solid var(--third-light);
-    background-color: var(--third-light);
+    border: 1px solid var(--add-color);
+    background-color: var(--add-color);
     font-weight: bold;
 }
   
@@ -274,11 +278,11 @@ body.dark .nav {
 }
   
   .button-add-project-popup:hover {
-    background-color: #a6f0a6;
+    background-color: var(--add-hover-color);
 }
   
   .button-cancel-project-popup:hover {
-    background-color: #f5b2b2;
+    background-color: var(--cancel-hover-color);
 }
 
 /* The main right div where the Project Tasks are displayed..content created in UI.js*/
