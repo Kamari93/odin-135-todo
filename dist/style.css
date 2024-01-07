@@ -38,6 +38,10 @@ body.dark {
     background: #7c837f;
 }
 
+body.dark input {
+    color: var(--secondary-dark);
+}
+
 
 body {
     font-family: 'Roboto', sans-serif;
