@@ -190,6 +190,11 @@ body.dark .nav {
     margin-top: 10px;
 }
 
+.projects-list {
+    max-height: 250px; /* Set the maximum height for the projects list */
+    overflow-y: auto; /* Enable vertical scrollbar when content exceeds the height */
+  }
+
 /* These will be created via the UI.js file each time new task list created */
 .button-project {
     display: flex;
