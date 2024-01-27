@@ -37,7 +37,17 @@ export const addProjectPopup = (() => {
         // Logic to add the new project to the projectsList
         // You might want to create a Project class or use a data structure to manage projects
         // For now, let's assume projectsList is an array
-        projectsList.innerHTML += `<div class="project">${project.name}</div>`;
+        // projectsList.innerHTML += `<div class="project">${project.name}</div>`;
+        projectsList.innerHTML += ` 
+        <button class="button-project" data-project-button>
+          <div class="left-project-panel">
+            <i class="fas fa-tasks"></i>
+            <span>${project.name}</span>
+          </div>
+          <div class="right-project-panel">
+            <i class="fas fa-times"></i>
+          </div>
+        </button>`
     }
 
     // Other functionality to handle adding a new project (on "Add" button click), etc.

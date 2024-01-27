@@ -197,6 +197,7 @@ body.dark .nav {
     justify-content: space-between;
     /* background-color: var(--secondary-light); */
     text-align: left;
+    margin-bottom: 5px;
 }
 
 /* The add project button */
@@ -225,6 +226,16 @@ body.dark .nav {
 .button-add-project:hover {
   background-color: #ccc;
   color: var(--primary-dark);
+}
+
+body.dark .button-project {
+    background: var(--third-light);
+    color: white;
+}
+
+body.dark .button-project:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark);
 }
 
 /* Will be created by rendering in UI.js this is the x icon on hover */
