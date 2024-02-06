@@ -1,3 +1,5 @@
+import { projectPreview } from './projectPreview';
+
 export const addProjectPopup = (() => {
     const buttonAddProject = document.getElementById('button-add-project');
     const addProjectPopup = document.getElementById('add-project-popup');
@@ -35,7 +37,7 @@ export const addProjectPopup = (() => {
 
     // function addNewProject(project) {
     //     // Logic to add the new project to the projectsList
-    //     // You might want to create a Project class or use a data structure to manage projects
+    //     // Might want to create a Project class or use a data structure to manage projects
     //     // For now, let's assume projectsList is an array
     //     // projectsList.innerHTML += `<div class="project">${project.name}</div>`;
     //     projectsList.innerHTML += ` 
@@ -93,7 +95,18 @@ export const addProjectPopup = (() => {
             // Call a function to handle deleting the project
             deleteProject(projectElement);
         });
+
+        // Add click event listener for the project button
+        projectElement.addEventListener('click', () => {
+            // Call a function to handle selecting and displaying the project
+            selectAndDisplayProject(projectName);
+        });
     };
+
+    function selectAndDisplayProject(projectName) {
+        // Call a function to display the selected project in the project preview
+        projectPreview.displaySelectedProject(projectName);
+    }
 
     function editProject(projectElement, projectName) {
         // Ask the user for a new project name
