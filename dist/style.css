@@ -205,6 +205,18 @@ body.dark .nav {
     margin-bottom: 5px;
 }
 
+/* focus highlight button */
+body.light .selected-project-button {
+    background-color: var(--third-dark); /* Example background color for highlighting */
+    color: white;
+    /* Add any other styling for the highlighted state */
+  }
+
+body.dark .selected-project-button {
+    background-color: orange;
+    color: white;
+  }
+
 /* The add project button */
 .button-add-project {
     margin-top: 10px;
@@ -233,15 +245,21 @@ body.dark .nav {
   color: var(--primary-dark);
 }
 
-body.dark .button-project {
-    background: var(--third-light);
+.button-project {
+    /* background: var(--add-color); */
+    background: inherit;
+}
+
+/* body.dark .button-project {
+    background: var(--primary-dark);
     color: white;
 }
+
 
 body.dark .button-project:hover {
     background: var(--primary-light);
     color: var(--primary-dark);
-}
+} */
 
 /* Will be created by rendering in UI.js this is the x icon on hover */
 .right-project-panel {

@@ -33,19 +33,19 @@ projectPreview.initialize(projectsList);
 projectsList.addEventListener('click', (event) => {
     const clickedElement = event.target;
     if (clickedElement.classList.contains('button-project')) {
-        const projectName = clickedElement.querySelector('span').textContent;
-        selectUserProject(projectName);
+        // const projectName = clickedElement.querySelector('span').textContent;
+        selectUserProject(clickedElement); // Pass the clicked button element
     }
 });
 
 // Function to handle selecting a user-created project
-function selectUserProject(projectName) {
-    // Logic to handle selecting a user-created project
-    // ...
-
+function selectUserProject(projectButton) { // Change the argument to projectButton
     // Call the displaySelectedProject function from the projectPreview module
+    const projectName = projectButton.querySelector('span').textContent;
     projectPreview.displaySelectedProject(projectName);
+    projectPreview.highlightSelectedProjectButton(projectButton); // Pass the button element
 };
+
 
 // Event listeners for default projects
 const defaultProjects = document.getElementById('default-projects-list');
@@ -54,5 +54,25 @@ defaultProjects.addEventListener('click', (event) => {
     if (clickedElement.classList.contains('button-default-project')) {
         const projectName = clickedElement.textContent.trim();
         projectPreview.displaySelectedProject(projectName);
+        projectPreview.highlightSelectedProjectButton(clickedElement);
     }
 });
+
+
+// // Event listeners for user-created projects
+// projectsList.addEventListener('click', (event) => {
+//     const clickedElement = event.target;
+//     if (clickedElement.classList.contains('button-project')) {
+//         const projectName = clickedElement.querySelector('span').textContent;
+//         selectUserProject(projectName);
+//     }
+// });
+
+// // Function to handle selecting a user-created project
+// function selectUserProject(projectName) {
+//     // Logic to handle selecting a user-created project
+//     // ...
+
+//     // Call the displaySelectedProject function from the projectPreview module
+//     projectPreview.displaySelectedProject(projectName);
+// };
