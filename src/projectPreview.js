@@ -32,10 +32,41 @@ export const projectPreview = (() => {
     }
 
     // Function to display the selected project in the project preview
-    function displaySelectedProject(projectName) {
-        projectPreviewElement.innerHTML = `<h1 class="selected-project">${projectName}</h1>`;
-        // Add more logic here to handle displaying tasks for the selected project
+    // function displaySelectedProject(projectName) {
+    //     projectPreviewElement.innerHTML = `<h1 class="selected-project">${projectName}</h1>`;
+    //     // Add more logic here to handle displaying tasks for the selected project
+    // }
+
+    // Function to display the selected project in the project preview
+    function displaySelectedProject(projectName, isDefaultProject) {
+        let projectHTML = `<h1 class="selected-project">${projectName}</h1>`;
+
+        if (!isDefaultProject) {
+            projectHTML += `
+            <div class="big-things">
+                <h2>1 Big Thing</h2>
+                <div>1. Placeholder text: Big task here</div>
+            </div>
+            <div class="medium-things">
+                <h2>3 Medium Things</h2>
+                <div>1. Placeholder text: Medium task here</div>
+                <div>2. Placeholder text: Medium task here</div>
+                <div>3. Placeholder text: Medium task here</div>
+            </div>
+            <div class="little-things">
+                <h2>5 Little Things</h2>
+                <div>1. Placeholder text: Little task here</div>
+                <div>2. Placeholder text: Little task here</div>
+                <div>3. Placeholder text: Little task here</div>
+                <div>4. Placeholder text: Little task here</div>
+                <div>5. Placeholder text: Little task here</div>
+            </div>
+        `;
+        }
+
+        projectPreviewElement.innerHTML = projectHTML;
     }
+
 
     // Function to highlight the selected Project
     function highlightSelectedProjectButton(projectButton) {

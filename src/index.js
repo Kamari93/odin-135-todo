@@ -1,5 +1,5 @@
 // this is the entry point for the app
-alert('Keep Going');
+alert('Keep Going...🍊🌊');
 
 // import toggle the toggle module
 import toggleTheme from './theme';
@@ -35,6 +35,7 @@ projectsList.addEventListener('click', (event) => {
     if (clickedElement.classList.contains('button-project')) {
         // const projectName = clickedElement.querySelector('span').textContent;
         selectUserProject(clickedElement); // Pass the clicked button element
+        // selectUserProject(projectName, false); // Pass false as the second argument
     }
 });
 
@@ -42,7 +43,7 @@ projectsList.addEventListener('click', (event) => {
 function selectUserProject(projectButton) { // Change the argument to projectButton
     // Call the displaySelectedProject function from the projectPreview module
     const projectName = projectButton.querySelector('span').textContent;
-    projectPreview.displaySelectedProject(projectName);
+    projectPreview.displaySelectedProject(projectName, false);
     projectPreview.highlightSelectedProjectButton(projectButton); // Pass the button element
 };
 
@@ -53,7 +54,7 @@ defaultProjects.addEventListener('click', (event) => {
     const clickedElement = event.target;
     if (clickedElement.classList.contains('button-default-project')) {
         const projectName = clickedElement.textContent.trim();
-        projectPreview.displaySelectedProject(projectName);
+        projectPreview.displaySelectedProject(projectName, true);
         projectPreview.highlightSelectedProjectButton(clickedElement);
     }
 });
