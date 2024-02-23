@@ -478,6 +478,77 @@ body.dark .button-project:hover {
 }
 
 
+/* Form */
+/* Style for the task form pop-up */
+.task-form-popup {
+    display: none; /*Initially hidden*/
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.task-form-container {
+    background-color: var(--add-hover-color);
+    margin: 10% auto; /* Center the form vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px; /* Set maximum width for larger screens */
+}
+
+/* Close button style */
+.close-task-form {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-task-form:hover,
+.close-task-form:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style for form labels */
+.task-form-label {
+    display: inline-block;
+    width: 30%; /* Adjust as needed */
+    margin-right: 5px;
+    text-align: right;
+}
+
+/* Style for form inputs */
+.task-form-input {
+    width: 65%; /* Adjust as needed */
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* Style for description text area */
+#task-description {
+    width: 100%; /* Take full width */
+    height: 100px; /* Adjust height as needed */
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#task-due-date {
+    margin-bottom: 5px;
+    /* width: 25%; */
+}
+
+#task-duration {
+    margin-bottom: 10px;
+    /* width: 25%; */
+}
+
 /* Footer */
 .footer {
     position: absolute;
@@ -547,5 +618,9 @@ body.dark .fa-github {
         justify-content: flex-end;
         max-width: 33%;
       }
+
+      .task-form-container {
+        width: 90%; /* Adjust width for smaller screens */
+    }
   
 }
