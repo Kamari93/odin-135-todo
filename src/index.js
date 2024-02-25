@@ -10,6 +10,8 @@ import { projectPreview } from './projectPreview';
 
 import { openNav } from './hamburgerNav.js';
 
+import { displayTaskForm, hideTaskForm } from './formDisplay.js';
+
 
 //on start up checked whether its on light mode or dark mode
 const themeSelect = document.getElementById("theme-select");
@@ -58,6 +60,29 @@ defaultProjects.addEventListener('click', (event) => {
         projectPreview.highlightSelectedProjectButton(clickedElement);
     }
 });
+
+// Add event listener for "Add Task" buttons in each div
+document.addEventListener('DOMContentLoaded', () => {
+    // Add event listener to a parent element that exists in the DOM
+    const projectPreview = document.getElementById('project-preview');
+
+    // Event delegation - listen for clicks on the parent element
+    projectPreview.addEventListener('click', (event) => {
+        // Check if the clicked element is a ".button-add-task" within the projects list
+        if (event.target && event.target.matches('.button-add-task')) {
+            // Display the task form popup
+            displayTaskForm();
+            console.log('Display')
+        }
+    });
+});
+
+// Add event listeners to x btns on forms to close task-form
+const hideTask = document.getElementById('close-task-form');
+hideTask.addEventListener('click', () => {
+    hideTaskForm();
+})
+
 
 
 // // Event listeners for user-created projects

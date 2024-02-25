@@ -218,6 +218,7 @@ body.dark .selected-project-button {
   }
 
 /* The add project button */
+.button-add-task,
 .button-add-project {
     margin-top: 10px;
     margin-left: 2px;

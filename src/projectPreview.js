@@ -45,21 +45,21 @@ export const projectPreview = (() => {
             projectHTML += `
             <div class="big-things">
                 <h2>1 Big Thing</h2>
-                <button class="button-add-project" id="button-add-task">
+                <button class="button-add-task button-add-project">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
             </div>
             <div class="medium-things">
                 <h2>3 Medium Things</h2>
-                <button class="button-add-project" id="button-add-task">
+                <button class="button-add-task button-add-project">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
             </div>
             <div class="little-things">
                 <h2>5 Little Things</h2>
-                <button class="button-add-project" id="button-add-task">
+                <button class="button-add-task button-add-project">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
