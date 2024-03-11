@@ -11,13 +11,6 @@ export const projectPreview = (() => {
     function initialize(projectsList) {
         // Assign the project preview element by selecting the element with the id 'project-preview'
         projectPreviewElement = document.getElementById('project-preview');
-
-        // Add any additional setup logic here, if needed
-
-        // Example: Attach an event listener to the projectsList container for user-created projects
-        // if (projectsList) {
-        //     projectsList.addEventListener('click', handleUserProjectClick);
-        // }
         projectsList.addEventListener('click', handleUserProjectClick);
     }
 
@@ -26,19 +19,14 @@ export const projectPreview = (() => {
         const clickedElement = event.target;
         if (clickedElement.classList.contains('button-project')) {
             const projectName = clickedElement.querySelector('span').textContent;
+            // const projectId = generateProjectId(); // Generate a unique project ID
             displaySelectedProject(projectName);
             highlightSelectedProjectButton(clickedElement); // Call to highlight the selected project button
         }
     }
 
     // Function to display the selected project in the project preview
-    // function displaySelectedProject(projectName) {
-    //     projectPreviewElement.innerHTML = `<h1 class="selected-project">${projectName}</h1>`;
-    //     // Add more logic here to handle displaying tasks for the selected project
-    // }
-
-    // Function to display the selected project in the project preview
-    function displaySelectedProject(projectName, isDefaultProject) {
+    function displaySelectedProject(projectName, projectId, isDefaultProject) {
         let projectHTML = `<h1 class="selected-project">${projectName}</h1>`;
 
         if (!isDefaultProject) {
@@ -89,7 +77,7 @@ export const projectPreview = (() => {
     return {
         initialize,
         displaySelectedProject,
-        highlightSelectedProjectButton
+        highlightSelectedProjectButton,
     };
 })();
 

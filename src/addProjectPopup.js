@@ -1,4 +1,5 @@
 import { projectPreview } from './projectPreview';
+import { generateProjectId } from './utils'; // Import the generateProjectId function
 
 export const addProjectPopup = (() => {
     const buttonAddProject = document.getElementById('button-add-project');
@@ -21,11 +22,18 @@ export const addProjectPopup = (() => {
     buttonAddProjectPopup.addEventListener('click', () => {
         const newProjectName = inputAddProjectPopup.value;
         if (newProjectName) {
-            // Create a new project object
-            const newProject = { name: newProjectName };
 
+            const newProjectId = generateProjectId(); // Generate project ID
+            // Create a new project object
+            const newProject = { name: newProjectName, id: newProjectId }; // Pass project ID
             // Call a function or method to add the new project to the list
             addNewProject(newProject);
+            console.log(newProjectId)
+            // Create a new project object
+            // const newProject = { name: newProjectName };
+
+            // Call a function or method to add the new project to the list
+            // addNewProject(newProject);
 
             // Optionally, close the popup
             addProjectPopup.style.display = 'none';
@@ -35,25 +43,12 @@ export const addProjectPopup = (() => {
         }
     });
 
-    // function addNewProject(project) {
-    //     // Logic to add the new project to the projectsList
-    //     // Might want to create a Project class or use a data structure to manage projects
-    //     // For now, let's assume projectsList is an array
-    //     // projectsList.innerHTML += `<div class="project">${project.name}</div>`;
-    //     projectsList.innerHTML += ` 
-    //     <button class="button-project" data-project-button>
-    //       <div class="left-project-panel">
-    //         <i class="fas fa-tasks"></i>
-    //         <span>${project.name}</span>
-    //       </div>
-    //       <div class="right-project-panel">
-    //         <i class='fas fa-edit'></i>
-    //         <i class='fas fa-trash-alt'></i>
-    //       </div>
-    //     </button>`
-    // }
 
     function addNewProject(project) {
+        // Call a function or method to add the new project to the list
+
+        projectPreview.displaySelectedProject(project.name, project.id); // Pass project ID
+
         // Create a new project element
         const projectElement = document.createElement('button');
         projectElement.classList.add('button-project');

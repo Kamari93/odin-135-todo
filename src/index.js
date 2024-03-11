@@ -12,6 +12,8 @@ import { openNav } from './hamburgerNav.js';
 
 import { displayTaskForm, hideTaskForm } from './formDisplay.js';
 
+import { createTask } from './taskCreation.js';
+
 
 //on start up checked whether its on light mode or dark mode
 const themeSelect = document.getElementById("theme-select");
@@ -102,3 +104,7 @@ hideTask.addEventListener('click', () => {
 //     // Call the displaySelectedProject function from the projectPreview module
 //     projectPreview.displaySelectedProject(projectName);
 // };
+
+// implement the create task function here
+// createTask('big-things', { name: 'My Task', description: 'This is my task' });
+// createTask(taskDetails);
