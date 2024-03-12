@@ -37,17 +37,16 @@ projectPreview.initialize(projectsList);
 projectsList.addEventListener('click', (event) => {
     const clickedElement = event.target;
     if (clickedElement.classList.contains('button-project')) {
-        // const projectName = clickedElement.querySelector('span').textContent;
-        selectUserProject(clickedElement); // Pass the clicked button element
-        // selectUserProject(projectName, false); // Pass false as the second argument
+        const projectId = clickedElement.dataset.projectId; // Fetch projectId from the dataset
+        selectUserProject(clickedElement, projectId); // Pass the clicked button element
     }
 });
 
 // Function to handle selecting a user-created project
-function selectUserProject(projectButton) { // Change the argument to projectButton
+function selectUserProject(projectButton, projectId) { // Change the argument to projectButton
     // Call the displaySelectedProject function from the projectPreview module
     const projectName = projectButton.querySelector('span').textContent;
-    projectPreview.displaySelectedProject(projectName, false);
+    projectPreview.displaySelectedProject(projectName, projectId, false);
     projectPreview.highlightSelectedProjectButton(projectButton); // Pass the button element
 };
 
@@ -58,7 +57,7 @@ defaultProjects.addEventListener('click', (event) => {
     const clickedElement = event.target;
     if (clickedElement.classList.contains('button-default-project')) {
         const projectName = clickedElement.textContent.trim();
-        projectPreview.displaySelectedProject(projectName, true);
+        projectPreview.displaySelectedProject(projectName, '', true);
         projectPreview.highlightSelectedProjectButton(clickedElement);
     }
 });
@@ -74,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target && event.target.matches('.button-add-task')) {
             // Display the task form popup
             displayTaskForm();
-            console.log('Display')
+            // console.log('Display')
         }
     });
 });
@@ -84,6 +83,9 @@ const hideTask = document.getElementById('close-task-form');
 hideTask.addEventListener('click', () => {
     hideTaskForm();
 })
+
+
+
 
 
 

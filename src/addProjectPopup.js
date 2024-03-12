@@ -27,14 +27,8 @@ export const addProjectPopup = (() => {
             // Create a new project object
             const newProject = { name: newProjectName, id: newProjectId }; // Pass project ID
             // Call a function or method to add the new project to the list
-            addNewProject(newProject);
+            addNewProject(newProject, newProjectId); // Pass projectId to addNewProject
             console.log(newProjectId)
-            // Create a new project object
-            // const newProject = { name: newProjectName };
-
-            // Call a function or method to add the new project to the list
-            // addNewProject(newProject);
-
             // Optionally, close the popup
             addProjectPopup.style.display = 'none';
 
@@ -44,11 +38,11 @@ export const addProjectPopup = (() => {
     });
 
 
-    function addNewProject(project) {
+    function addNewProject(project, projectId) {
         // Call a function or method to add the new project to the list
 
-        projectPreview.displaySelectedProject(project.name, project.id); // Pass project ID
-
+        // projectPreview.displaySelectedProject(project.name, project.id); // Pass project ID
+        projectPreview.displaySelectedProject(project.name, projectId); // Pass projectId
         // Create a new project element
         const projectElement = document.createElement('button');
         projectElement.classList.add('button-project');
@@ -134,5 +128,7 @@ export const addProjectPopup = (() => {
 
     return {
         // Expose any necessary functions or variables
+        // addNewProject,
+        // projectId // Add this line to expose the projectId
     };
 })();

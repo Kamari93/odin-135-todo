@@ -19,35 +19,43 @@ export const projectPreview = (() => {
         const clickedElement = event.target;
         if (clickedElement.classList.contains('button-project')) {
             const projectName = clickedElement.querySelector('span').textContent;
-            // const projectId = generateProjectId(); // Generate a unique project ID
-            displaySelectedProject(projectName);
+            const projectId = clickedElement.dataset.projectId; // Fetch projectId from the dataset
+            displaySelectedProject(projectName, projectId); // Pass projectId to displaySelectedProject
             highlightSelectedProjectButton(clickedElement); // Call to highlight the selected project button
         }
     }
 
     // Function to display the selected project in the project preview
     function displaySelectedProject(projectName, projectId, isDefaultProject) {
+
+        // Store projectId for internal use
+        // Example: You can store it in an array or object for future reference
+        // const storedProject = { name: projectName, id: projectId };
+        // You can perform any additional logic with storedProject if needed
+
         let projectHTML = `<h1 class="selected-project">${projectName}</h1>`;
+
+        // console.log('Stored Project ID:', projectId);
 
         if (!isDefaultProject) {
             projectHTML += `
-            <div class="big-things">
+            <div id="${projectId}-big-things" class="big-things">
                 <h2>1 Big Thing</h2>
-                <button class="button-add-task button-add-project">
+                <button class="button-add-task button-add-project" data-div-id="big-things">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
             </div>
-            <div class="medium-things">
+            <div id="${projectId}-medium-things" class="medium-things">
                 <h2>3 Medium Things</h2>
-                <button class="button-add-task button-add-project">
+                <button class="button-add-task button-add-project" data-div-id="medium-things">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
             </div>
-            <div class="little-things">
+            <div id="${projectId}-little-things" class="little-things">
                 <h2>5 Little Things</h2>
-                <button class="button-add-task button-add-project">
+                <button class="button-add-task button-add-project" data-div-id="little-things">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
