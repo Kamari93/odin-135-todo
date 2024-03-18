@@ -23,6 +23,7 @@ export const projectPreview = (() => {
             displaySelectedProject(projectName, projectId); // Pass projectId to displaySelectedProject
             highlightSelectedProjectButton(clickedElement); // Call to highlight the selected project button
         }
+        // displaySelectedProject(projectName, projectId);
     }
 
     // Function to display the selected project in the project preview
@@ -86,6 +87,7 @@ export const projectPreview = (() => {
         initialize,
         displaySelectedProject,
         highlightSelectedProjectButton,
+        // handleUserProjectClick
     };
 })();
 

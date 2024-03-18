@@ -14,6 +14,17 @@ import { displayTaskForm, hideTaskForm } from './formDisplay.js';
 
 import { createTask } from './taskCreation.js';
 
+// Function to initialize the application
+function initializeApp() {
+    // Get the default project buttons
+    const defaultProjectButtons = document.querySelectorAll('.button-default-project');
+
+    // Add event listeners to the default project buttons
+    defaultProjectButtons.forEach(button => {
+        button.addEventListener('click', handleDefaultProjectClick);
+    });
+}
+
 
 //on start up checked whether its on light mode or dark mode
 const themeSelect = document.getElementById("theme-select");
@@ -62,6 +73,17 @@ defaultProjects.addEventListener('click', (event) => {
     }
 });
 
+// Function to handle clicks on default project buttons
+function handleDefaultProjectClick(event) {
+    // Retrieve the project name and ID from the clicked button
+    const projectName = event.target.textContent.trim();
+    const projectId = event.target.id; // Retrieve project ID from the button's id attribute
+
+    // Display the selected default project
+    projectPreview.displaySelectedProject(projectName, projectId, true); // Pass true to indicate it's a default project
+    console.log('Default Project Clicked:', projectId);
+}
+
 // Add event listener for "Add Task" buttons in each div
 document.addEventListener('DOMContentLoaded', () => {
     // Add event listener to a parent element that exists in the DOM
@@ -85,6 +107,8 @@ hideTask.addEventListener('click', () => {
 })
 
 
+// Initialize the application when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', initializeApp);
 
 
 

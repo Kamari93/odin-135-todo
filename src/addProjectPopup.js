@@ -28,7 +28,7 @@ export const addProjectPopup = (() => {
             const newProject = { name: newProjectName, id: newProjectId }; // Pass project ID
             // Call a function or method to add the new project to the list
             addNewProject(newProject, newProjectId); // Pass projectId to addNewProject
-            console.log(newProjectId)
+            // console.log(newProjectId)
             // Optionally, close the popup
             addProjectPopup.style.display = 'none';
 
@@ -46,6 +46,9 @@ export const addProjectPopup = (() => {
         // Create a new project element
         const projectElement = document.createElement('button');
         projectElement.classList.add('button-project');
+
+        // Set the data-project-id attribute to the project element
+        projectElement.dataset.projectId = projectId;
 
         const leftPanel = document.createElement('div');
         leftPanel.classList.add('left-project-panel');
