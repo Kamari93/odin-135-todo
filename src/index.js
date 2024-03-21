@@ -14,6 +14,8 @@ import { displayTaskForm, hideTaskForm } from './formDisplay.js';
 
 import { createTask } from './taskCreation.js';
 
+import { handleFormSubmission } from './taskCreation.js';
+
 // Function to initialize the application
 function initializeApp() {
     // Get the default project buttons
@@ -100,6 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Add event listener to the form for form submission
+document.getElementById('task-form').addEventListener('submit', handleFormSubmission);
+
 // Add event listeners to x btns on forms to close task-form
 const hideTask = document.getElementById('close-task-form');
 hideTask.addEventListener('click', () => {
@@ -113,7 +118,7 @@ document.addEventListener('DOMContentLoaded', initializeApp);
 
 
 
-// // Event listeners for user-created projects
+// Event listeners for user-created projects
 // projectsList.addEventListener('click', (event) => {
 //     const clickedElement = event.target;
 //     if (clickedElement.classList.contains('button-project')) {
@@ -122,7 +127,7 @@ document.addEventListener('DOMContentLoaded', initializeApp);
 //     }
 // });
 
-// // Function to handle selecting a user-created project
+// Function to handle selecting a user-created project
 // function selectUserProject(projectName) {
 //     // Logic to handle selecting a user-created project
 //     // ...
