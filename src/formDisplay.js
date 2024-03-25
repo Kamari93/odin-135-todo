@@ -5,6 +5,7 @@ export function displayTaskForm() {
     formElement.style.display = 'block';
 }
 
+
 export function hideTaskForm() {
     // Hide task form
     const formElement = document.getElementById('task-form-popup');

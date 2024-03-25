@@ -26,6 +26,17 @@ export const projectPreview = (() => {
         // displaySelectedProject(projectName, projectId);
     }
 
+    // Function to handle clicks on "Add Task" buttons
+    function handleAddTaskButtonClick(event) {
+        const clickedButton = event.target;
+        if (clickedButton.classList.contains('button-add-task')) {
+            const projectId = clickedButton.closest('.project-tasks').dataset.projectId;
+            // Here, you can perform the necessary actions for adding a task
+            // For example, you can open a form or directly add a task to the selected project
+            console.log('Add task clicked for project:', projectId);
+        }
+    }
+
     // Function to display the selected project in the project preview
     function displaySelectedProject(projectName, projectId, isDefaultProject) {
 
@@ -40,23 +51,23 @@ export const projectPreview = (() => {
 
         if (!isDefaultProject) {
             projectHTML += `
-            <div id="${projectId}-big-things" class="big-things">
+            <div id="${projectId}-big-things-container" class="big-things">
                 <h2>1 Big Thing</h2>
-                <button class="button-add-task button-add-project" id="${projectId}-big-things">
+                <button class="button-add-task button-add-project big-things-btn" id="${projectId}-big-things-btn">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
             </div>
             <div id="${projectId}-medium-things" class="medium-things">
                 <h2>3 Medium Things</h2>
-                <button class="button-add-task button-add-project" id="${projectId}-medium-things">
+                <button class="button-add-task button-add-project medium-things-btn" id="${projectId}-medium-things-btn">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
             </div>
             <div id="${projectId}-little-things" class="little-things">
                 <h2>5 Little Things</h2>
-                <button class="button-add-task button-add-project" id="${projectId}-little-things">
+                <button class="button-add-task button-add-project little-things-btn" id="${projectId}-little-things-btn">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>

@@ -12,9 +12,9 @@ import { openNav } from './hamburgerNav.js';
 
 import { displayTaskForm, hideTaskForm } from './formDisplay.js';
 
-import { createTask } from './taskCreation.js';
+// import { createTask } from './taskCreation.js';
 
-import { handleFormSubmission } from './taskCreation.js';
+import { handleFormSubmission, extractProjectIdFromPreview } from './taskCreation.js';
 
 // Function to initialize the application
 function initializeApp() {
@@ -98,12 +98,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // Display the task form popup
             displayTaskForm();
             // console.log('Display')
+
+            const taskId = event.target.id;
+            console.log('Task ID:', taskId);
         }
     });
 });
 
 // Add event listener to the form for form submission
 document.getElementById('task-form').addEventListener('submit', handleFormSubmission);
+document.getElementById('task-form').addEventListener('submit', hideTaskForm);
+// document.getElementById('task-form').addEventListener('submit', (event) => {
+//     handleFormSubmission(event);
+//     hideTaskForm();
+// });
 
 // Add event listeners to x btns on forms to close task-form
 const hideTask = document.getElementById('close-task-form');
@@ -116,26 +124,42 @@ hideTask.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', initializeApp);
 
 
+// Add event listener for "Add Task" buttons in each div
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Add event listener to a parent element that exists in the DOM
+//     const projectPreview = document.getElementById('project-preview');
 
+//     // Event delegation - listen for clicks on the parent element
+//     projectPreview.addEventListener('click', (event) => {
+//         // Check if the clicked element is a ".button-add-task" within the projects list
+//         if (event.target && event.target.matches('.button-add-task')) {
+//             // Display the task form popup
+//             displayTaskForm();
+//             // console.log('Display')
 
-// Event listeners for user-created projects
-// projectsList.addEventListener('click', (event) => {
-//     const clickedElement = event.target;
-//     if (clickedElement.classList.contains('button-project')) {
-//         const projectName = clickedElement.querySelector('span').textContent;
-//         selectUserProject(projectName);
-//     }
+//             const taskId = event.target.id;
+//             console.log('Task ID:', taskId);
+
+//             // Retrieve task details from the form
+//             const title = document.getElementById('task-title').value;
+//             const description = document.getElementById('task-description').value;
+//             const dueDate = document.getElementById('task-due-date').value;
+//             const duration = document.getElementById('task-duration').value;
+
+//             // Retrieve the selected project ID from the project preview
+//             const projectId = extractProjectIdFromPreview();
+
+//             // Create task details object
+//             const taskDetails = {
+//                 title,
+//                 description,
+//                 dueDate,
+//                 duration
+//             };
+
+//             // Create the task associated with the selected project
+//             createTask(taskDetails, projectId, event.target, taskId); // Pass taskId here
+//             console.log('Project ID:', projectId); // Log the projectId for debugging
+//         }
+//     });
 // });
-
-// Function to handle selecting a user-created project
-// function selectUserProject(projectName) {
-//     // Logic to handle selecting a user-created project
-//     // ...
-
-//     // Call the displaySelectedProject function from the projectPreview module
-//     projectPreview.displaySelectedProject(projectName);
-// };
-
-// implement the create task function here
-// createTask('big-things', { name: 'My Task', description: 'This is my task' });
-// createTask(taskDetails);
