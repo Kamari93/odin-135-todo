@@ -86,32 +86,9 @@ function handleDefaultProjectClick(event) {
     console.log('Default Project Clicked:', projectId);
 }
 
-// Add event listener for "Add Task" buttons in each div
-document.addEventListener('DOMContentLoaded', () => {
-    // Add event listener to a parent element that exists in the DOM
-    const projectPreview = document.getElementById('project-preview');
-
-    // Event delegation - listen for clicks on the parent element
-    projectPreview.addEventListener('click', (event) => {
-        // Check if the clicked element is a ".button-add-task" within the projects list
-        if (event.target && event.target.matches('.button-add-task')) {
-            // Display the task form popup
-            displayTaskForm();
-            // console.log('Display')
-
-            const taskId = event.target.id;
-            console.log('Task ID:', taskId);
-        }
-    });
-});
-
 // Add event listener to the form for form submission
-document.getElementById('task-form').addEventListener('submit', handleFormSubmission);
+// document.getElementById('task-form').addEventListener('submit', handleFormSubmission);
 document.getElementById('task-form').addEventListener('submit', hideTaskForm);
-// document.getElementById('task-form').addEventListener('submit', (event) => {
-//     handleFormSubmission(event);
-//     hideTaskForm();
-// });
 
 // Add event listeners to x btns on forms to close task-form
 const hideTask = document.getElementById('close-task-form');
@@ -123,43 +100,24 @@ hideTask.addEventListener('click', () => {
 // Initialize the application when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', initializeApp);
 
+let taskID; // Define a global variable to store the taskId
 
-// Add event listener for "Add Task" buttons in each div
-// document.addEventListener('DOMContentLoaded', () => {
-//     // Add event listener to a parent element that exists in the DOM
-//     const projectPreview = document.getElementById('project-preview');
+document.addEventListener('DOMContentLoaded', () => {
+    const projectPreview = document.getElementById('project-preview');
+    projectPreview.addEventListener('click', (event) => {
+        if (event.target && event.target.matches('.button-add-task')) {
+            displayTaskForm();
 
-//     // Event delegation - listen for clicks on the parent element
-//     projectPreview.addEventListener('click', (event) => {
-//         // Check if the clicked element is a ".button-add-task" within the projects list
-//         if (event.target && event.target.matches('.button-add-task')) {
-//             // Display the task form popup
-//             displayTaskForm();
-//             // console.log('Display')
+            // Retrieve task ID and store it in the global variable
+            taskID = event.target.id;
+            console.log('Task ID:', taskID);
+        }
+    });
+});
 
-//             const taskId = event.target.id;
-//             console.log('Task ID:', taskId);
 
-//             // Retrieve task details from the form
-//             const title = document.getElementById('task-title').value;
-//             const description = document.getElementById('task-description').value;
-//             const dueDate = document.getElementById('task-due-date').value;
-//             const duration = document.getElementById('task-duration').value;
-
-//             // Retrieve the selected project ID from the project preview
-//             const projectId = extractProjectIdFromPreview();
-
-//             // Create task details object
-//             const taskDetails = {
-//                 title,
-//                 description,
-//                 dueDate,
-//                 duration
-//             };
-
-//             // Create the task associated with the selected project
-//             createTask(taskDetails, projectId, event.target, taskId); // Pass taskId here
-//             console.log('Project ID:', projectId); // Log the projectId for debugging
-//         }
-//     });
-// });
+// Function to handle form submission
+document.getElementById('task-form').addEventListener('submit', (event) => {
+    // Pass taskId to handleFormSubmission function
+    handleFormSubmission(event, taskID);
+});

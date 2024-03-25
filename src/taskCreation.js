@@ -5,14 +5,15 @@ import { projectPreview } from './projectPreview.js';
 const projectTasks = {};
 
 // Function to create a task associated with the selected project
-export function createTask(taskDetails, projectId, clickedButton, taskId) {
-    console.log(clickedButton);
+export function createTask(taskDetails, projectId, taskId) {
+    // console.log(clickedButton);
+    console.log(`on task creation: ${taskId}`);
     // Determine the task div based on the clicked button
-    let taskDiv;
+    let taskDiv = taskId;
     // Determine task div based on clicked button
-    if (clickedButton.closest('.big-things-btn')) {
+    if (taskId === `${projectId}-big-things-btn`) {
         taskDiv = document.getElementById(`${projectId}-big-things-container`);
-    } else if (clickedButton.closest('.medium-things-btn')) {
+    } else if (taskId === `${projectId}-medium-things-btn`) {
         taskDiv = document.getElementById(`${projectId}-medium-things`);
     } else {
         taskDiv = document.getElementById(`${projectId}-little-things`);
@@ -62,9 +63,6 @@ export function handleFormSubmission(event, taskId) {
     // Retrieve the selected project ID from the project preview
     const projectId = extractProjectIdFromPreview();
 
-    // Get the clicked button that triggered the form submission
-    // const clickedButton = document.querySelector('.button-add-task:focus');
-
     // Create task details object
     const taskDetails = {
         title,
@@ -74,10 +72,11 @@ export function handleFormSubmission(event, taskId) {
     };
 
     // Create the task associated with the selected project
-    createTask(taskDetails, projectId, event.target, taskId);
-    // createTask(taskDetails, projectId, taskId);
+    // createTask(taskDetails, projectId, event.target, taskId);
+    createTask(taskDetails, projectId, taskId);
 
     console.log('Project ID:', projectId); // Log the projectId for debugging
+    console.log(`Retrieved taskID: ${taskId}`); // Log the taskID for debugging (taskId === `taskId);
 }
 
 // Function to extract the project ID from the project preview elements
