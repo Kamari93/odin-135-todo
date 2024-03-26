@@ -58,14 +58,14 @@ export const projectPreview = (() => {
                   Add Task
                 </button>
             </div>
-            <div id="${projectId}-medium-things" class="medium-things">
+            <div id="${projectId}-medium-things-container" class="medium-things">
                 <h2>3 Medium Things</h2>
                 <button class="button-add-task button-add-project medium-things-btn" id="${projectId}-medium-things-btn">
                   <i class="fas fa-plus"></i>
                   Add Task
                 </button>
             </div>
-            <div id="${projectId}-little-things" class="little-things">
+            <div id="${projectId}-little-things-container" class="little-things">
                 <h2>5 Little Things</h2>
                 <button class="button-add-task button-add-project little-things-btn" id="${projectId}-little-things-btn">
                   <i class="fas fa-plus"></i>

@@ -14,9 +14,9 @@ export function createTask(taskDetails, projectId, taskId) {
     if (taskId === `${projectId}-big-things-btn`) {
         taskDiv = document.getElementById(`${projectId}-big-things-container`);
     } else if (taskId === `${projectId}-medium-things-btn`) {
-        taskDiv = document.getElementById(`${projectId}-medium-things`);
+        taskDiv = document.getElementById(`${projectId}-medium-things-container`);
     } else {
-        taskDiv = document.getElementById(`${projectId}-little-things`);
+        taskDiv = document.getElementById(`${projectId}-little-things-container`);
     }
     // Check if task div exists
     if (taskDiv) {
@@ -44,6 +44,7 @@ export function createTask(taskDetails, projectId, taskId) {
             projectTasks[projectId] = [];
         }
         projectTasks[projectId].push(taskElement);
+
     } else {
         // Handle case where task div does not exist
         console.error('Task div not found for projectId:', projectId);
@@ -77,6 +78,7 @@ export function handleFormSubmission(event, taskId) {
 
     console.log('Project ID:', projectId); // Log the projectId for debugging
     console.log(`Retrieved taskID: ${taskId}`); // Log the taskID for debugging (taskId === `taskId);
+    console.log(projectTasks); // Log the projectTasks data structure for debugging
 }
 
 // Function to extract the project ID from the project preview elements
